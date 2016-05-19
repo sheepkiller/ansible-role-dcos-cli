@@ -1,0 +1,9 @@
+---
+# defaults file for dcos-cli
+dcos_cli_ssl_verify: "false"
+dcos_cli_reporting: "true"
+dcos_cli_timeout: 5
+dcos_cli_url: "http://localhost"
+dcos_cli_user: "{{ ansible_user_id }}"
+dcos_cli_installpath: "{{ ansible_user_dir }}/dcos/"
+dcos_cli_version: 0.4.4

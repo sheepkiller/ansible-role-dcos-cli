@@ -1,0 +1,20 @@
+---
+# tasks file for dcos-cli
+
+- name: install DC/OS CLI
+  pip:
+    name: dcoscli
+    version: "{{ dcos_cli_version }}"
+    virtualenv: "{{ dcos_cli_installpath }}"
+    virtualenv_command: "{{ dcos_cli_virtualenv_command | default(omit) }}"
+
+- name: create target directory_mode
+  file:
+    path: "{{ ansible_user_dir }}/.dcos"
+    state: directory
+    mode: 0700
+
+- name: install dcos.conf
+  template:
+    src: dcos.toml.j2
+    dest: "{{ ansible_user_dir }}/.dcos/dcos.toml"
